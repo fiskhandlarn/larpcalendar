@@ -1,10 +1,10 @@
-name: Deploy to Preview Channel
+name: Deploy Web App to Preview Channel
 
 on:
   pull_request:
     # Optionally configure to run only for specific files. For example:
     paths:
-      - 'apps/larpcalendar-web'
+      - 'apps/larpcalendar-web/**'
 
 jobs:
   build_and_preview:
