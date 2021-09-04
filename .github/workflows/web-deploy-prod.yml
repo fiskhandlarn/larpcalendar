@@ -1,4 +1,4 @@
-name: Deploy Web App to Live Channel
+name: Deploy Web to Live Channel
 
 on:
   push:
@@ -19,6 +19,6 @@ jobs:
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_LARP_CALENDAR }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_LARP_CALENDAR_9F83F }}'
           projectId: larp-calendar-9f83f
           channelId: live
