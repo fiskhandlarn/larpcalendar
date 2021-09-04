@@ -27,6 +27,13 @@
     ]
   },
   "projects": {
+    "larpcalendar-app": {
+      "tags": []
+    },
+    "larpcalendar-app-e2e": {
+      "tags": [],
+      "implicitDependencies": ["larpcalendar-app"]
+    },
     "larpcalendar-web": {
       "tags": []
     },

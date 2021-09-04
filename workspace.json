@@ -1,6 +1,145 @@
 {
   "version": 2,
   "projects": {
+    "larpcalendar-app": {
+      "root": "apps/larpcalendar-app",
+      "sourceRoot": "apps/larpcalendar-app/src",
+      "projectType": "application",
+      "targets": {
+        "start": {
+          "executor": "@nrwl/react-native:start",
+          "options": {
+            "port": 8081
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "nx start larpcalendar-app"
+          }
+        },
+        "run-ios": {
+          "executor": "@nrwl/react-native:run-ios",
+          "options": {}
+        },
+        "bundle-ios": {
+          "executor": "@nrwl/react-native:bundle",
+          "outputs": [
+            "apps/larpcalendar-app/build"
+          ],
+          "options": {
+            "entryFile": "apps/larpcalendar-app/src/main.tsx",
+            "platform": "ios",
+            "bundleOutput": "dist/apps/larpcalendar-app/ios/main.bundle"
+          }
+        },
+        "run-android": {
+          "executor": "@nrwl/react-native:run-android",
+          "options": {}
+        },
+        "build-android": {
+          "executor": "@nrwl/react-native:build-android",
+          "outputs": [
+            "apps/larpcalendar-app/android/app/build/outputs/bundle",
+            "apps/larpcalendar-app/android/app/build/outputs/apk"
+          ],
+          "options": {}
+        },
+        "bundle-android": {
+          "executor": "@nrwl/react-native:bundle",
+          "options": {
+            "entryFile": "apps/larpcalendar-app/src/main.tsx",
+            "platform": "android",
+            "bundleOutput": "dist/apps/larpcalendar-app/android/main.bundle"
+          }
+        },
+        "sync-deps": {
+          "executor": "@nrwl/react-native:sync-deps",
+          "options": {}
+        },
+        "ensure-symlink": {
+          "executor": "@nrwl/react-native:ensure-symlink",
+          "options": {}
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/larpcalendar-app/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/larpcalendar-app"
+          ],
+          "options": {
+            "jestConfig": "apps/larpcalendar-app/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "larpcalendar-app-e2e": {
+      "root": "apps/larpcalendar-app-e2e",
+      "sourceRoot": "apps/larpcalendar-app-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "build-ios": {
+          "executor": "@nrwl/detox:build",
+          "options": {
+            "detoxConfiguration": "ios.sim.debug"
+          },
+          "configurations": {
+            "production": {
+              "detoxConfiguration": "ios.sim.release"
+            }
+          }
+        },
+        "test-ios": {
+          "executor": "@nrwl/detox:test",
+          "options": {
+            "detoxConfiguration": "ios.sim.debug"
+          },
+          "configurations": {
+            "production": {
+              "detoxConfiguration": "ios.sim.release"
+            }
+          }
+        },
+        "build-android": {
+          "executor": "@nrwl/detox:build",
+          "options": {
+            "detoxConfiguration": "android.emu.debug"
+          },
+          "configurations": {
+            "production": {
+              "detoxConfiguration": "android.emu.release"
+            }
+          }
+        },
+        "test-android": {
+          "executor": "@nrwl/detox:test",
+          "options": {
+            "detoxConfiguration": "android.emu.debug"
+          },
+          "configurations": {
+            "production": {
+              "detoxConfiguration": "android.emu.release"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "apps/larpcalendar-app-e2e/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        }
+      }
+    },
     "larpcalendar-web": {
       "root": "apps/larpcalendar-web",
       "sourceRoot": "apps/larpcalendar-web/src",
@@ -8,7 +147,9 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/larpcalendar-web",
             "index": "apps/larpcalendar-web/src/index.html",
@@ -19,7 +160,9 @@
               "apps/larpcalendar-web/src/favicon.ico",
               "apps/larpcalendar-web/src/assets"
             ],
-            "styles": ["apps/larpcalendar-web/src/styles.css"],
+            "styles": [
+              "apps/larpcalendar-web/src/styles.css"
+            ],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -64,12 +207,16 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/larpcalendar-web/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "apps/larpcalendar-web/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/larpcalendar-web"],
+          "outputs": [
+            "coverage/apps/larpcalendar-web"
+          ],
           "options": {
             "jestConfig": "apps/larpcalendar-web/jest.config.js",
             "passWithNoTests": true
@@ -98,7 +245,9 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/larpcalendar-web-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/larpcalendar-web-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
