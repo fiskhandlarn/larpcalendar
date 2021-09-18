@@ -96,3 +96,6 @@ buck-out/
 node_modules/
 
 apps/larpcalendar-app-e2e/artifacts
+
+## configuration
+.env

@@ -1,7 +1,7 @@
 {
   "npmScope": "larpcalendar",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "implicitDependencies": {
     "package.json": {
@@ -27,12 +27,8 @@
     ]
   },
   "projects": {
-    "larpcalendar-app": {
+    "firebase": {
       "tags": []
-    },
-    "larpcalendar-app-e2e": {
-      "tags": [],
-      "implicitDependencies": ["larpcalendar-app"]
     },
     "larpcalendar-web": {
       "tags": []
@@ -40,6 +36,12 @@
     "larpcalendar-web-e2e": {
       "tags": [],
       "implicitDependencies": ["larpcalendar-web"]
+    },
+    "types": {
+      "tags": []
+    },
+    "web-ui": {
+      "tags": []
     }
   }
 }
