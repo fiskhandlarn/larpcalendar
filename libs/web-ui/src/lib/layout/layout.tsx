@@ -1,8 +1,8 @@
-import { Container } from '@chakra-ui/layout';
+import { Box } from '@chakra-ui/layout';
 import { FunctionComponent } from 'react';
 
 export const Layout: FunctionComponent = ({ children }) => {
-  return <Container>{children}</Container>;
+  return <Box>{children}</Box>;
 };
 
 export default Layout;

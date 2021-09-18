@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@larpcalendar/firebase": ["libs/firebase/src/index.ts"],
+      "@larpcalendar/pages": ["libs/pages/src/index.ts"],
       "@larpcalendar/types": ["libs/types/src/index.ts"],
       "@larpcalendar/web-ui": ["libs/web-ui/src/index.ts"]
     }

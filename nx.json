@@ -37,6 +37,9 @@
       "tags": [],
       "implicitDependencies": ["larpcalendar-web"]
     },
+    "pages": {
+      "tags": []
+    },
     "types": {
       "tags": []
     },
