@@ -1,7 +1,7 @@
-import { types } from './types';
+import * as types from './types';
 
 describe('types', () => {
   it('should work', () => {
-    expect(types()).toEqual('types');
+    expect(types).toBeDefined();
   });
 });

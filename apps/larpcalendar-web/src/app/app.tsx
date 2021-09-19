@@ -1,27 +1,20 @@
-import { FunctionComponent } from 'react';
-import { getFirestore } from '@firebase/firestore';
-import { useFirebaseApp, FirestoreProvider } from 'reactfire';
+import { FunctionComponent, memo } from 'react';
 import { AboutPage, EventsPage } from '@larpcalendar/pages';
 import { Header, Layout } from '@larpcalendar/web-ui';
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
-export const App: FunctionComponent = () => {
-  const firestore = getFirestore(useFirebaseApp());
-
+export const App: FunctionComponent = memo(() => {
+  console.log('App');
   return (
-    <FirestoreProvider sdk={firestore}>
-      <ChakraProvider>
-        <BrowserRouter>
-          <Layout>
-            <Header title="Larp Calendar" />
-            <Route path="/" exact component={EventsPage} />
-            <Route path="/about" exact component={AboutPage} />
-          </Layout>
-        </BrowserRouter>
-      </ChakraProvider>
-    </FirestoreProvider>
+    <BrowserRouter>
+      <Layout>
+        <Header title="Larp Calendar" />
+        <Route path="/" exact component={EventsPage} />
+        <Route path="/about" exact component={AboutPage} />
+      </Layout>
+    </BrowserRouter>
   );
-};
+});
 
 export default App;

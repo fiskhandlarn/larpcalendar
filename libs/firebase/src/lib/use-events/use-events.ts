@@ -16,7 +16,7 @@ export interface UseEvents {
 
 export function useEvents(): ObservableStatus<EventDocument[]> {
   const firestore = useFirestore();
-  const [isAscending] = useState<boolean>(false);
+  const [isAscending] = useState<boolean>(true);
   const eventsCollection = collection(firestore, 'events');
   const eventsQuery = query<EventDocument>(
     eventsCollection,

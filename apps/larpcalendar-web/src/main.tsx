@@ -1,14 +1,14 @@
 import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom';
-import { AppProvider } from '@larpcalendar/firebase';
+import { FirebaseProvider } from '@larpcalendar/firebase';
 
 import App from './app/app';
 
 ReactDOM.render(
   <StrictMode>
-    <AppProvider>
+    <FirebaseProvider>
       <App />
-    </AppProvider>
+    </FirebaseProvider>
   </StrictMode>,
   document.getElementById('root')
 );

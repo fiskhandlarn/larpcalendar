@@ -3,15 +3,18 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx serve",
+    "start": "firebase emulators:exec 'yarn nx serve' --import ./scripts/firebase/firestore-export --ui",
+    "test": "firebase emulators:exec 'nx test' --import ./scripts/firebase/firestore-export",
+    "e2e": "firebase emulators:exec 'nx e2e' --import ./scripts/firebase/firestore-export",
+    "lint": "yarn nx lint",
     "build": "nx build",
-    "test": "nx test",
-    "start:app": "nx start larpcalendar-app",
-    "start:android": "nx run-android larpcalendar-app",
-    "start:ios": "nx run-ios larpcalendar-app --install",
-    "start:test": "nx start larpcalendar-app && nx run-ios larpcalendar-app --install",
-    "pod": "cd apps/larpcalendar-app/ios && pod install && cd ../../..",
-    "pod:update": "cd apps/larpcalendar-app/ios && pod install --repo-update && cd ../../.."
+    "affected:test": "firebase emulators:exec 'nx affected --target=test' --import ./scripts/firebase/firestore-export",
+    "affected:e2e": "firebase emulators:exec 'nx affected --target=e2e' --import ./scripts/firebase/firestore-export",
+    "affected:build": "nx affected --target=build",
+    "affected:lint": "yarn nx affected --target=lint",
+    "emulators:start": "firebase emulators:start --import ./scripts/firebase/firestore-export",
+    "emulators:export": "firebase emulators:export ./scripts/firebase/firestore-export",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -19,8 +22,6 @@
     "@chakra-ui/react": "^1.6.7",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@react-native-firebase/app": "^12.7.5",
-    "@react-native-firebase/firestore": "^12.7.5",
     "core-js": "^3.6.5",
     "dotenv": "^10.0.0",
     "firebase": "^9.0.2",
@@ -29,7 +30,7 @@
     "react-dom": "17.0.2",
     "react-native": "0.65.1",
     "react-router-dom": "5.2.0",
-    "reactfire": "^4.1.1",
+    "reactfire": "^4.2.0",
     "regenerator-runtime": "0.13.7",
     "tslib": "^2.0.0"
   },
@@ -82,6 +83,7 @@
     "react-native-codegen": "0.0.7",
     "react-test-renderer": "17.0.2",
     "ts-jest": "27.0.3",
-    "typescript": "~4.3.5"
+    "typescript": "~4.3.5",
+    "husky": "^7.0.0"
   }
 }

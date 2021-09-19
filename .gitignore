@@ -99,3 +99,7 @@ apps/larpcalendar-app-e2e/artifacts
 
 ## configuration
 .env
+
+
+## Firebase
+*-debug.log
