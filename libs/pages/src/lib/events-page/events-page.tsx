@@ -1,27 +1,27 @@
-import { Container, Heading, VStack } from '@chakra-ui/react';
+import { Heading, VStack } from '@chakra-ui/react';
 import { useEvents } from '@larpcalendar/firebase';
 import { EventCardList } from '@larpcalendar/web-ui';
-import './events-page.module.css';
+import { FunctionComponent } from 'react';
+import { Meta } from '../meta/meta';
 
 /* eslint-disable-next-line */
 export interface EventsPageProps {}
 
-export function EventsPage(props: EventsPageProps) {
+export const EventsPage: FunctionComponent<EventsPageProps> = (_props) => {
   const { data, status } = useEvents();
   return (
-    <Container>
-      <VStack alignItems="flex-start">
-        <Heading as="h1">Events</Heading>
-        {status === 'error' ? (
-          <div>Error!</div>
-        ) : status === 'loading' ? (
-          <div>Loading...</div>
-        ) : (
-          <EventCardList events={data} />
-        )}
-      </VStack>
-    </Container>
+    <VStack alignItems="flex-start">
+      <Meta title="Events" />
+      <Heading as="h1">Events</Heading>
+      {status === 'error' ? (
+        <div>Error!</div>
+      ) : status === 'loading' ? (
+        <div>Loading...</div>
+      ) : (
+        <EventCardList events={data} />
+      )}
+    </VStack>
   );
-}
+};
 
 export default EventsPage;

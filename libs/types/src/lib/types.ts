@@ -26,3 +26,8 @@ export interface EventDocument extends DocumentData {
     coordinates?: Geopoint;
   };
 }
+
+export interface LoginFormValues {
+  email: string;
+  password: string;
+}

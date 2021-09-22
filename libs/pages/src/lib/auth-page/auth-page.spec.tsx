@@ -1,10 +1,10 @@
 import { render } from '../../../test-utils';
 
-import EventCardList from './event-card-list';
+import AuthPage from './auth-page';
 
-describe('EventCardList', () => {
+describe('AuthPage', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<EventCardList />);
+    const { baseElement } = render(<AuthPage />);
     expect(baseElement).toBeTruthy();
   });
 });

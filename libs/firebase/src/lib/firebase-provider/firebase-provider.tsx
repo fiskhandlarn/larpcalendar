@@ -1,7 +1,9 @@
+import { connectAuthEmulator, getAuth } from '@firebase/auth';
 import { FirebaseOptions } from 'firebase/app';
 import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
 import { FunctionComponent, memo } from 'react';
 import {
+  AuthProvider,
   FirebaseAppProvider,
   FirestoreProvider,
   useFirebaseApp,
@@ -19,12 +21,18 @@ const firebaseConfig: FirebaseOptions = {
 
 const FirebaseServicesProvider: FunctionComponent = memo(({ children }) => {
   const firestore = getFirestore(useFirebaseApp());
+  const auth = getAuth(useFirebaseApp());
 
   if (process.env.NODE_ENV !== 'production') {
     connectFirestoreEmulator(firestore, 'localhost', 8080);
+    connectAuthEmulator(auth, 'http://localhost:9099');
   }
 
-  return <FirestoreProvider sdk={firestore}>{children}</FirestoreProvider>;
+  return (
+    <FirestoreProvider sdk={firestore}>
+      <AuthProvider sdk={auth}>{children}</AuthProvider>
+    </FirestoreProvider>
+  );
 });
 
 export const FirebaseProvider: FunctionComponent = memo(({ children }) => {

@@ -1,18 +1,17 @@
 import React, { FunctionComponent, ReactElement, StrictMode } from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import { Box, ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import { FirebaseProvider } from '@larpcalendar/firebase';
+import { theme } from './src/lib/theme/theme';
 
 const AllTheProviders: FunctionComponent = ({ children }) => {
   return (
     <StrictMode>
       <FirebaseProvider>
-        <BrowserRouter>
-          <ChakraProvider>
-            <Box>{children}</Box>
-          </ChakraProvider>
-        </BrowserRouter>
+        <ChakraProvider theme={theme}>
+          <BrowserRouter>{children}</BrowserRouter>
+        </ChakraProvider>
       </FirebaseProvider>
     </StrictMode>
   );

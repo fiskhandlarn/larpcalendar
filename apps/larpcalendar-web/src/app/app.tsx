@@ -1,19 +1,32 @@
 import { FunctionComponent, memo } from 'react';
-import { AboutPage, EventsPage } from '@larpcalendar/pages';
-import { Header, Layout } from '@larpcalendar/web-ui';
+import {
+  AuthPage,
+  AboutPage,
+  EventsPage,
+  TermsOfServicePage,
+  PrivacyPolicyPage,
+} from '@larpcalendar/pages';
+import { Layout, theme } from '@larpcalendar/web-ui';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 export const App: FunctionComponent = memo(() => {
-  console.log('App');
   return (
-    <BrowserRouter>
-      <Layout>
-        <Header title="Larp Calendar" />
-        <Route path="/" exact component={EventsPage} />
-        <Route path="/about" exact component={AboutPage} />
-      </Layout>
-    </BrowserRouter>
+    <ChakraProvider theme={theme}>
+      <BrowserRouter>
+        <Layout>
+          <Route path="/" exact component={EventsPage} />
+          <Route path="/about" exact component={AboutPage} />
+          <Route path="/auth" exact component={AuthPage} />
+          <Route
+            path="/terms-of-service"
+            exact
+            component={TermsOfServicePage}
+          />
+          <Route path="/privacy-policy" exact component={PrivacyPolicyPage} />
+        </Layout>
+      </BrowserRouter>
+    </ChakraProvider>
   );
 });
 

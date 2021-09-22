@@ -1,10 +1,10 @@
 import { render } from '../../../test-utils';
 
-import Layout from './layout';
+import Footer from './footer';
 
-describe('Layout', () => {
+describe('Footer', () => {
   it('should render successfully', async () => {
-    const { baseElement } = await render(<Layout />);
+    const { baseElement } = await render(<Footer />);
     expect(baseElement).toBeTruthy();
   });
 });

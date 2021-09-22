@@ -1,10 +1,9 @@
 import { render } from '../../../test-utils';
+import UserMenu from './user-menu';
 
-import Layout from './layout';
-
-describe('Layout', () => {
+describe('UserMenu', () => {
   it('should render successfully', async () => {
-    const { baseElement } = await render(<Layout />);
+    const { baseElement } = await render(<UserMenu />);
     expect(baseElement).toBeTruthy();
   });
 });

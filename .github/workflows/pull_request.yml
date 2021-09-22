@@ -30,7 +30,7 @@ jobs:
       - name: Install Firebase tools
         run: npm install -g firebase-tools
       - name: Test affected
-        run: firebase emulators:exec 'yarn nx affected --target=test --base=remotes/origin/main' --import ./scripts/firebase/firestore-export
+        run: firebase emulators:exec 'yarn nx affected --target=test --base=remotes/origin/main' --only auth,firestore --import ./scripts/firebase/firestore-export
         env:
           NX_FIREBASE_API_KEY: '${{ secrets.NX_FIREBASE_API_KEY }}'
           NX_FIREBASE_AUTH_DOMAIN: '${{ secrets.NX_FIREBASE_AUTH_DOMAIN }}'
@@ -51,11 +51,10 @@ jobs:
           node-version: '14'
       - name: Install packages
         run: yarn
-      - name: Fetch origin
-        run: git fetch origin main
       - name: Build affected
         run: yarn nx affected --target=build --base=remotes/origin/main
         env:
+          NODE_ENV: 'production'
           NX_FIREBASE_API_KEY: '${{ secrets.NX_FIREBASE_API_KEY }}'
           NX_FIREBASE_AUTH_DOMAIN: '${{ secrets.NX_FIREBASE_AUTH_DOMAIN }}'
           NX_FIREBASE_PROJECT_ID: '${{ secrets.NX_FIREBASE_PROJECT_ID }}'
@@ -63,7 +62,17 @@ jobs:
           NX_FIREBASE_MESSAGING_SENDER_ID: '${{ secrets.NX_FIREBASE_MESSAGING_SENDER_ID }}'
           NX_FIREBASE_APP_ID: '${{ secrets.NX_FIREBASE_APP_ID }}'
           NX_FIREBASE_MEASUREMENT_ID: '${{ secrets.NX_FIREBASE_MEASUREMENT_ID }}'
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+
+      - name: Check file existence
+        id: check_files
+        uses: andstor/file-existence-action@v1
+        with:
+          files: 'dist/apps/larpcalendar-web'
+
+      - name: Deploy to test environment
+        if: steps.check_files.outputs.files_exists == 'true'
+        # Only runs if all of the files exists
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_LARP_CALENDAR_9F83F }}'

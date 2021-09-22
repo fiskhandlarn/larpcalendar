@@ -1,10 +1,10 @@
 import { render } from '../../../test-utils';
 
-import EventCardList from './event-card-list';
+import AlertBox from './alert-box';
 
-describe('EventCardList', () => {
+describe('Alert', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<EventCardList />);
+    const { baseElement } = render(<AlertBox />);
     expect(baseElement).toBeTruthy();
   });
 });

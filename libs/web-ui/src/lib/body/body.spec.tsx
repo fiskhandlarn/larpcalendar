@@ -1,10 +1,10 @@
 import { render } from '../../../test-utils';
 
-import EventCardList from './event-card-list';
+import Body from './body';
 
-describe('EventCardList', () => {
+describe('Body', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<EventCardList />);
+    const { baseElement } = render(<Body />);
     expect(baseElement).toBeTruthy();
   });
 });

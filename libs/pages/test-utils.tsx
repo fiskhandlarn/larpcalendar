@@ -3,16 +3,15 @@ import { render, RenderOptions } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { FirebaseProvider } from '@larpcalendar/firebase';
 import { Box, ChakraProvider } from '@chakra-ui/react';
+import { theme } from '@larpcalendar/web-ui';
 
 const AllTheProviders: FunctionComponent = ({ children }) => {
   return (
     <StrictMode>
       <FirebaseProvider>
-        <BrowserRouter>
-          <ChakraProvider>
-            <Box>{children}</Box>
-          </ChakraProvider>
-        </BrowserRouter>
+        <ChakraProvider theme={theme}>
+          <BrowserRouter>{children}</BrowserRouter>
+        </ChakraProvider>
       </FirebaseProvider>
     </StrictMode>
   );
