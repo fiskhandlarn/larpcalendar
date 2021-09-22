@@ -1,4 +1,5 @@
-import { Text, Heading, Link, VStack } from '@chakra-ui/react';
+import { Heading, Link, Text, VStack } from '@chakra-ui/react';
+
 import { FunctionComponent } from 'react';
 import { Meta } from '../meta/meta';
 

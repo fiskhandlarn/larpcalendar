@@ -1,8 +1,9 @@
 import { Heading, VStack } from '@chakra-ui/react';
-import { useEvents } from '@larpcalendar/firebase';
+
 import { EventCardList } from '@larpcalendar/web-ui';
 import { FunctionComponent } from 'react';
 import { Meta } from '../meta/meta';
+import { useEvents } from '@larpcalendar/firebase';
 
 /* eslint-disable-next-line */
 export interface EventsPageProps {}

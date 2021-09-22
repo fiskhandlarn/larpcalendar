@@ -1,5 +1,6 @@
 import React, { FunctionComponent, ReactElement, StrictMode } from 'react';
-import { render, RenderOptions } from '@testing-library/react';
+import { RenderOptions, render } from '@testing-library/react';
+
 import { FirebaseProvider } from './src/lib/firebase-provider/firebase-provider';
 
 const AllTheProviders: FunctionComponent = ({ children }) => {

@@ -1,6 +1,5 @@
-import { render } from '../../../test-utils';
-
 import AboutPage from './about-page';
+import { render } from '../../../test-utils';
 
 describe('AboutPage', () => {
   it('should render successfully', () => {

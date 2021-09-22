@@ -4,8 +4,9 @@ import {
   IconButton,
   useColorMode,
 } from '@chakra-ui/react';
+import { FaMoon, FaSun } from 'react-icons/fa';
+
 import { FunctionComponent } from 'react';
-import { FaSun, FaMoon } from 'react-icons/fa';
 export const ColorModeToggle: FunctionComponent = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const label =
@@ -22,4 +23,3 @@ export const ColorModeToggle: FunctionComponent = () => {
 };
 
 export default ColorModeToggle;
-

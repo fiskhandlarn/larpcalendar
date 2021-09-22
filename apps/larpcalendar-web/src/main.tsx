@@ -1,11 +1,10 @@
-import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom';
+
+import { App } from './app/app';
 import { ColorModeScript } from '@chakra-ui/react';
-
 import { FirebaseProvider } from '@larpcalendar/firebase';
+import { StrictMode } from 'react';
 import { theme } from '@larpcalendar/web-ui';
-
-import App from './app/app';
 
 ReactDOM.render(
   <>

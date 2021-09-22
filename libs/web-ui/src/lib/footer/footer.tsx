@@ -1,15 +1,16 @@
 import {
   Box,
+  ButtonGroup,
+  IconButton,
   Link,
   SimpleGrid,
   Stack,
   StackDivider,
   Text,
-  ButtonGroup,
-  IconButton,
 } from '@chakra-ui/react';
-import { FunctionComponent } from 'react';
+
 import { FaFacebook } from 'react-icons/fa';
+import { FunctionComponent } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 /* eslint-disable-next-line */

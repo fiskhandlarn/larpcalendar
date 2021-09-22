@@ -1,7 +1,6 @@
-import './event-card-list.module.css';
+import { EventCard } from '../event-card/event-card';
 import { EventDocument } from '@larpcalendar/types';
 import { FunctionComponent } from 'react';
-import { EventCard } from '../event-card/event-card';
 
 export interface EventCardListProps {
   events?: EventDocument[];

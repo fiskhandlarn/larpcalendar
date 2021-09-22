@@ -1,6 +1,5 @@
-import { render } from '../../test-utils';
-
 import App from './app';
+import { render } from '../../test-utils';
 
 const useUser = jest.fn();
 

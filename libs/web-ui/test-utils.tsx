@@ -1,5 +1,6 @@
 import React, { FunctionComponent, ReactElement, StrictMode } from 'react';
-import { render, RenderOptions } from '@testing-library/react';
+import { RenderOptions, render } from '@testing-library/react';
+
 import { BrowserRouter } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react';
 import { FirebaseProvider } from '@larpcalendar/firebase';

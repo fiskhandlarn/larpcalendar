@@ -1,26 +1,14 @@
-import {
-  VStack,
-  Heading,
-  useToast,
-  Alert,
-  AlertIcon,
-  AlertDescription,
-  CloseButton,
-  Container,
-  Center,
-  Box,
-} from '@chakra-ui/react';
-import { Redirect } from 'react-router-dom';
-import { useAuth, useSigninCheck } from 'reactfire';
-import { FunctionComponent, useState } from 'react';
-
-import { Meta } from '../meta/meta';
-
 import { AlertBox, AlertBoxProps, LoginForm } from '@larpcalendar/web-ui';
-import { LoginFormValues } from '@larpcalendar/types';
-import { FormikHelpers } from 'formik';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { FunctionComponent, useState } from 'react';
+import { Heading, VStack, useToast } from '@chakra-ui/react';
+import { useAuth, useSigninCheck } from 'reactfire';
+
 import { FirebaseError } from '@firebase/util';
+import { FormikHelpers } from 'formik';
+import { LoginFormValues } from '@larpcalendar/types';
+import { Meta } from '../meta/meta';
+import { Redirect } from 'react-router-dom';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 /* eslint-disable-next-line */
 export interface AuthPageProps {}

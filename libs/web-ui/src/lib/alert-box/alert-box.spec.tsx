@@ -1,6 +1,5 @@
-import { render } from '../../../test-utils';
-
 import AlertBox from './alert-box';
+import { render } from '../../../test-utils';
 
 describe('Alert', () => {
   it('should render successfully', () => {

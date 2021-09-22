@@ -16,6 +16,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
+          cache: yarn
       - name: Cache firebase emulators
         uses: actions/cache@v2
         with:
@@ -23,8 +24,6 @@ jobs:
           key: ${{ runner.os }}-firebase-emulators-${{ hashFiles('~/.cache/firebase/emulators/**') }}
       - name: Install packages
         run: yarn
-      - name: Fetch origin
-        run: git fetch origin main
       - name: Lint affected
         run: yarn nx affected --target=lint --base=remotes/origin/main
       - name: Install Firebase tools
@@ -39,18 +38,6 @@ jobs:
           NX_FIREBASE_MESSAGING_SENDER_ID: '${{ secrets.NX_FIREBASE_MESSAGING_SENDER_ID }}'
           NX_FIREBASE_APP_ID: '${{ secrets.NX_FIREBASE_APP_ID }}'
           NX_FIREBASE_MEASUREMENT_ID: '${{ secrets.NX_FIREBASE_MEASUREMENT_ID }}'
-  build_and_preview:
-    needs: lint_and_test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-      - name: Install packages
-        run: yarn
       - name: Build affected
         run: yarn nx affected --target=build --base=remotes/origin/main
         env:
@@ -62,16 +49,13 @@ jobs:
           NX_FIREBASE_MESSAGING_SENDER_ID: '${{ secrets.NX_FIREBASE_MESSAGING_SENDER_ID }}'
           NX_FIREBASE_APP_ID: '${{ secrets.NX_FIREBASE_APP_ID }}'
           NX_FIREBASE_MEASUREMENT_ID: '${{ secrets.NX_FIREBASE_MEASUREMENT_ID }}'
-
-      - name: Check file existence
+      - name: Check if web app was affected and built
         id: check_files
         uses: andstor/file-existence-action@v1
         with:
           files: 'dist/apps/larpcalendar-web'
-
       - name: Deploy to test environment
         if: steps.check_files.outputs.files_exists == 'true'
-        # Only runs if all of the files exists
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

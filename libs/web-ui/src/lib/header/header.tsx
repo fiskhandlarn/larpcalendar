@@ -2,20 +2,19 @@ import {
   Box,
   Button,
   ButtonGroup,
-  Heading,
   HStack,
-  Stack,
+  Heading,
   Link,
   MenuButton,
   Spinner,
+  Stack,
   useColorMode,
 } from '@chakra-ui/react';
+
+import ColorModeToggle from '../color-mode-toggle/color-mode-toggle';
 import { FunctionComponent } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { useUser } from 'reactfire';
-import ColorModeToggle from '../color-mode-toggle/color-mode-toggle';
 import UserMenu from '../user-menu/user-menu';
-import './header.module.css';
 
 /* eslint-disable-next-line */
 export interface HeaderProps {

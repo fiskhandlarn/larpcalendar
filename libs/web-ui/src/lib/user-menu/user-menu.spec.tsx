@@ -1,5 +1,5 @@
-import { render } from '../../../test-utils';
 import UserMenu from './user-menu';
+import { render } from '../../../test-utils';
 
 describe('UserMenu', () => {
   it('should render successfully', async () => {

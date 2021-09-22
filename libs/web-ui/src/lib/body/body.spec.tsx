@@ -1,6 +1,5 @@
-import { render } from '../../../test-utils';
-
 import Body from './body';
+import { render } from '../../../test-utils';
 
 describe('Body', () => {
   it('should render successfully', () => {

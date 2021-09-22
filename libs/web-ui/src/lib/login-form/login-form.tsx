@@ -1,16 +1,17 @@
 import {
   Box,
   Button,
-  useColorModeValue,
-  chakra,
-  Stack,
   FormControl,
   FormLabel,
   Input,
+  Stack,
+  chakra,
+  useColorModeValue,
 } from '@chakra-ui/react';
-import { LoginFormValues } from '@larpcalendar/types';
 import { FormikHelpers, useFormik } from 'formik';
+
 import { FunctionComponent } from 'react';
+import { LoginFormValues } from '@larpcalendar/types';
 
 export interface LoginFormProps {
   onSubmit: (

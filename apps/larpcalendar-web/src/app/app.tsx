@@ -1,13 +1,14 @@
-import { FunctionComponent, memo } from 'react';
 import {
-  AuthPage,
   AboutPage,
+  AuthPage,
   EventsPage,
-  TermsOfServicePage,
   PrivacyPolicyPage,
+  TermsOfServicePage,
 } from '@larpcalendar/pages';
-import { Layout, theme } from '@larpcalendar/web-ui';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { FunctionComponent, memo } from 'react';
+import { Layout, theme } from '@larpcalendar/web-ui';
+
 import { ChakraProvider } from '@chakra-ui/react';
 
 export const App: FunctionComponent = memo(() => {

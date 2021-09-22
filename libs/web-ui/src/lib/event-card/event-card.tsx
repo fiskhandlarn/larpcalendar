@@ -1,7 +1,5 @@
 import { FunctionComponent } from 'react';
 
-import './event-card.module.css';
-
 /* eslint-disable-next-line */
 export interface EventCardProps {
   name?: string;

@@ -1,13 +1,14 @@
-import { connectAuthEmulator, getAuth } from '@firebase/auth';
-import { FirebaseOptions } from 'firebase/app';
-import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
-import { FunctionComponent, memo } from 'react';
 import {
   AuthProvider,
   FirebaseAppProvider,
   FirestoreProvider,
   useFirebaseApp,
 } from 'reactfire';
+import { FunctionComponent, memo } from 'react';
+import { connectAuthEmulator, getAuth } from '@firebase/auth';
+import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore';
+
+import { FirebaseOptions } from 'firebase/app';
 
 const firebaseConfig: FirebaseOptions = {
   apiKey: process.env.NX_FIREBASE_API_KEY,

@@ -1,94 +1,93 @@
+# Larp Calendar
 
+[Larp Calendar](https://larpcalendar.org/) is a website for keeping track of larp events accepting international participants.
 
-# Larpcalendar
+This repository contains the source code for the website as well as some documentation on how to contribute.
 
-This project was generated using [Nx](https://nx.dev).
+## Tech Stack
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+The core technical ideals of this project is to maintain a modern codebase with a professional grade structure and avoid user hostile patterns and technologies like tracking, dark patterns and such.
 
-🔎 **Smart, Extensible Build Framework**
+### Repository
 
-## Adding capabilities to your workspace
+This is a monorepo built on [Nx](https://nx.dev). In short it's a tool that helps us keep a clean structure and helps us write better code.
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+### Backend & Hosting
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+The site backend and hosting is on [Google Firebase](https://firebase.google.com/). For local development Firebase emulators are used.
 
-Below are our core plugins:
+### Frontend
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+The site frontend is build on [react](https://reactjs.org/) with the [Chakra UI](https://chakra-ui.com/) library for styling and interface. Reactfire is used to interface with Firebase, Formik is used to build forms and react-icons is used for icons outside of Chakra's base set. We strive for keeping the code modular, easy to maintain and as testable as possible.
 
-There are also many [community plugins](https://nx.dev/community) you could add.
+## Recommended Tools
 
-## Generate an application
+- [Visual Studio Code](https://code.visualstudio.com/) for editing code. There is a vscode workspace set up in the repository to help you follow the standards and settings of the project.
+- [GitHub Desktop](https://desktop.github.com/) for source control if you are not a fan of command line git use.
+- [commitizen](https://github.com/commitizen/cz-cli) for clean git commit messages.
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+## Local Development
 
-> You can use any of the plugins above to generate applications as well.
+### Pre-requisites
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+To run the project locally you need:
 
-## Generate a library
+- [git](https://git-scm.com/) for source control.
+- [node.js](https://nodejs.org/en/) to run the code. We suggest using the latest Long Term Support version.
+- [yarn](https://yarnpkg.com/) to manage packages and run tasks.
+- [Java](https://openjdk.java.net/) to run the Firebase emulators.
+- [Firebase CLI](https://firebase.google.com/docs/cli#install_the_firebase_cli) to run Firebase emulators and scripts.
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
+### Getting Started
 
-> You can also use any of the plugins above to generate libraries as well.
+Check out the code from Github using your favorite method.
 
-Libraries are shareable across libraries and applications. They can be imported from `@larpcalendar/mylib`.
+Enter the project directory and run `yarn` to install packages.
 
-## Development server
+Open the file `larpcalendar.code-workspace` in Visual Studio Code and install the suggested plugins.
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+Run the npm script `start`, either from within Visual Studio Code or from the command line with `yarn start`. This will start the Firebase emulators with UI, import default mock data and start the local development server.
 
-## Code scaffolding
+You can now access the Firebase Emulator UI on <http://localhost:4000> and the website itself on <http://localhost:4200/>.
 
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
+The frontend app using hot module reloading, so any changes in the code should automatically reload the page.
 
-## Build
+### Mock Data
 
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+There is a handful of default events pre-populated in the mock Firestore database.
 
-## Running unit tests
+There 9 pre-made users for testing auth. They all have the password `password` and email addresses `admin@example.com`, `user1@example.com`, `user2@example.com`, etc up until `user9@example.com`.
 
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
+You can make any changes you like to the mock data in the ui. It is possible to export the data for persistance, but please be careful with this.
 
-Run `nx affected:test` to execute the unit tests affected by a change.
+### Running Tests
 
-## Running end-to-end tests
+Due to a limitation in the current setup you need to stop your local development server before running the npm script for tests. If you want to run tests without stopping your server you can run `yarn test:dev` to run the tests without starting the emulators.
 
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
+### Adding a Feature
 
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
+To add features to the project you must use Nx generators. These will scaffold components for you with tests and proper defaults. The easiest way to do this is with the Nx plugin in Visual Studio Code. If you want to use the command line you can read more on how to in the [Nx Generators documentation](https://nx.dev/l/r/generators/using-schematics).
 
-## Understand your workspace
+The main app resides in `apps/larpcalendar-web`. This is mostly a basic framework with routing.
 
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
+Firebase scaffolding resides in the `libs/firebase` directory.
 
-## Further help
+Page logic resides in `libs/pages`.
 
-Visit the [Nx Documentation](https://nx.dev) to learn more.
+Shared Typescript interfaces reside in `libs/types`.
 
+UI components reside in `libs/web-ui`.
 
+### Committing Code
 
-## ☁ Nx Cloud
+This repository uses Husky to lint and test the code before allowing a commit. Due to the aforementioned limitation in emulators you need to stop your local development server before committing code. We know this is annoying and hope to resolve this in the near future.
 
-### Distributed Computation Caching & Distributed Task Execution
+Please use commitizen to write a concise and clear commit message.
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
+When a pull request is created on Github a continous integration/continuous deploy workflow will run that lints, tests, builds and deploys the app to a temporary test site.
 
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
+### Contact
 
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
+You can use the [issues tab](https://github.com/nordiclarp/larpcalendar/issues) in this repository to report bugs or suggest improvements.
 
-Visit [Nx Cloud](https://nx.app/) to learn more.
+If you have any questions, don't hesitate to reach out! You can reach me on [johannes@axner.io](mailto:johannes@axner.io) or join our community in the [Nordic Larp Discord](https://discord.gg/bGvAFDsDwV).

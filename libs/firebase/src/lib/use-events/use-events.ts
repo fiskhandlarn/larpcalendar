@@ -1,12 +1,12 @@
-import { collection, query, orderBy } from '@firebase/firestore';
 import { EventDocument, QueryStatus } from '@larpcalendar/types';
-
-import { useState } from 'react';
 import {
   ObservableStatus,
   useFirestore,
   useFirestoreCollectionData,
 } from 'reactfire';
+import { collection, orderBy, query } from '@firebase/firestore';
+
+import { useState } from 'react';
 
 export interface UseEvents {
   status: QueryStatus;

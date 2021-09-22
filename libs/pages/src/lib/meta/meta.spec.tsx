@@ -1,6 +1,5 @@
-import { render } from '../../../test-utils';
-
 import Meta from './meta';
+import { render } from '../../../test-utils';
 
 describe('Meta', () => {
   it('should render successfully', () => {

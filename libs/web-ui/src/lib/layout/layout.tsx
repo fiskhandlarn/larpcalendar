@@ -1,8 +1,9 @@
-import { ChakraProvider, Box } from '@chakra-ui/react';
+import { Box, ChakraProvider } from '@chakra-ui/react';
+
+import Body from '../body/body';
+import Footer from '../footer/footer';
 import { FunctionComponent } from 'react';
 import Header from '../header/header';
-import Footer from '../footer/footer';
-import Body from '../body/body';
 
 export const Layout: FunctionComponent = ({ children }) => {
   return (

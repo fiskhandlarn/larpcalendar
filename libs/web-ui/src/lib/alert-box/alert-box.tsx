@@ -1,12 +1,13 @@
 import {
   Alert,
+  AlertDescription,
   AlertIcon,
   AlertTitle,
-  AlertDescription,
-  AlertStatus,
 } from '@chakra-ui/alert';
+
+import { AlertStatus } from '@chakra-ui/react';
 import { CloseButton } from '@chakra-ui/close-button';
-import { FunctionComponent } from 'react-router/node_modules/@types/react';
+import { FunctionComponent } from 'react';
 
 export interface AlertBoxProps {
   status?: AlertStatus;

@@ -1,20 +1,21 @@
-import { ChevronDownIcon } from '@chakra-ui/icons';
 import {
-  Spinner,
   Button,
   Menu,
   MenuButton,
-  MenuList,
-  MenuItem,
   MenuDivider,
-  useToast,
+  MenuItem,
+  MenuList,
+  Spinner,
   useColorModeValue,
+  useToast,
 } from '@chakra-ui/react';
-import { signOut, User } from 'firebase/auth';
-import { Link } from 'react-router-dom';
-import { FunctionComponent } from 'react-router/node_modules/@types/react';
+import { FaCog, FaSignOutAlt } from 'react-icons/fa';
 import { useAuth, useUser } from 'reactfire';
-import { FaSignOutAlt, FaCog } from 'react-icons/fa';
+
+import { ChevronDownIcon } from '@chakra-ui/icons';
+import { FunctionComponent } from 'react';
+import { Link } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 
 /* eslint-disable-next-line */
 export interface UserMenuProps {}

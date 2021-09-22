@@ -1,6 +1,5 @@
-import { render } from '../../../test-utils';
-
 import Layout from './layout';
+import { render } from '../../../test-utils';
 
 describe('Layout', () => {
   it('should render successfully', async () => {

@@ -1,6 +1,5 @@
-import { render } from '../../../test-utils';
-
 import EventsPage from './events-page';
+import { render } from '../../../test-utils';
 
 describe('EventsPage', () => {
   it('should render successfully', () => {
