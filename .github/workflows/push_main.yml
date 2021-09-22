@@ -26,11 +26,11 @@ jobs:
       - name: Fetch origin
         run: git fetch origin main
       - name: Lint affected
-        run: yarn nx affected --target=lint --base=remotes/origin/main
+        run: yarn nx affected --target=lint --base=remotes/origin/main~1 --head=remotes/origin/main
       - name: Install Firebase tools
         run: npm install -g firebase-tools
       - name: Test affected
-        run: firebase emulators:exec 'yarn nx affected --target=test --base=remotes/origin/main' --only auth,firestore --import ./scripts/firebase/firestore-export
+        run: firebase emulators:exec 'yarn nx affected --target=test --base=remotes/origin/main~1 --head=remotes/origin/main' --only auth,firestore --import ./scripts/firebase/firestore-export
         env:
           NX_FIREBASE_API_KEY: '${{ secrets.NX_FIREBASE_API_KEY }}'
           NX_FIREBASE_AUTH_DOMAIN: '${{ secrets.NX_FIREBASE_AUTH_DOMAIN }}'
@@ -52,7 +52,7 @@ jobs:
       - name: Install packages
         run: yarn
       - name: Build affected
-        run: yarn nx affected --target=build --base=remotes/origin/main
+        run: yarn nx affected --target=build --base=remotes/origin/main~1 --head=remotes/origin/main
         env:
           NODE_ENV: 'production'
           NX_FIREBASE_API_KEY: '${{ secrets.NX_FIREBASE_API_KEY }}'
