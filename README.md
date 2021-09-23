@@ -56,7 +56,7 @@ The frontend app using hot module reloading, so any changes in the code should a
 
 There is a handful of default events pre-populated in the mock Firestore database.
 
-There 9 pre-made users for testing auth. They all have the password `password` and email addresses `admin@example.com`, `user1@example.com`, `user2@example.com`, etc up until `user9@example.com`.
+There are nine pre-made users for testing auth. They all have the password `password` and email addresses `admin@example.com`, `user1@example.com`, `user2@example.com`, etc up until `user9@example.com`.
 
 You can make any changes you like to the mock data in the ui. It is possible to export the data for persistance, but please be careful with this.
 
