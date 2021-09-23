@@ -50,7 +50,7 @@ Run the npm script `start`, either from within Visual Studio Code or from the co
 
 You can now access the Firebase Emulator UI on <http://localhost:4000> and the website itself on <http://localhost:4200/>.
 
-The frontend app using hot module reloading, so any changes in the code should automatically reload the page.
+The frontend app is using hot module reloading, so any changes in the code should automatically reload the page.
 
 ### Mock Data
 
